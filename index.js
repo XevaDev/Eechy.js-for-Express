@@ -42,7 +42,7 @@ class Eechy {
         params.forEach((param) => {
             pParsed += `/:${param}`;
         });
-        this.app.get(`/api${route}${pParsed}`, (req, res) => __awaiter(this, void 0, void 0, function* () {
+        this.app.get(`/${route}${pParsed}`, (req, res) => __awaiter(this, void 0, void 0, function* () {
             let resx;
             let args = [];
             params.forEach((param) => {
@@ -59,7 +59,11 @@ class Eechy {
                     resx = run();
                 }
                 if (this.logs) {
-                    console.log(`${route}${pParsed} was called.`);
+                    let valueParsed = "";
+                    args.forEach((arg) => {
+                        valueParsed += `/:${arg}`;
+                    });
+                    console.log(`${route}${valueParsed} was called.`);
                 }
             }
             catch (e) {
