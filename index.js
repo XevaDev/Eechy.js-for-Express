@@ -66,7 +66,7 @@ class Eechy {
                 if (this.logs) {
                     let valueParsed = "";
                     args.forEach((arg) => {
-                        valueParsed += `/:${arg}`;
+                        valueParsed += `/${arg}`;
                     });
                     console.log(`${route}${valueParsed} was called.`);
                 }
