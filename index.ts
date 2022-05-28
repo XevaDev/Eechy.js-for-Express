@@ -42,7 +42,7 @@ class Eechy {
       pParsed += `/:${param}`;
     });
 
-    this.app.get(`/api/${route}${pParsed}`, async (req, res) => {
+    this.app.get(`/api${route}${pParsed}`, async (req, res) => {
       let resx: object;
 
       let args: string[] = [];
