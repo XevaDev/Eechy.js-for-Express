@@ -13,10 +13,16 @@ class Eechy {
   }
 
   runAllLibs() {
-    let files = readdirSync(this.libsFolder || "../../libs", "utf-8");
+    let parsePath: string | string[] = __dirname.split("/");
+    parsePath.pop();
+    parsePath.pop();
+    parsePath.push("libs");
+    parsePath = parsePath.join("/");
+
+    let files = readdirSync(this.libsFolder || parsePath, "utf-8");
     files.forEach((file) => {
       if (file.endsWith(".js")) {
-        let data = require(`${this.libsFolder || "../../libs"}/${file}`);
+        let data = require(`${this.libsFolder || parsePath}/${file}`);
         let run: (...args: any[]) => object = data.run;
         let route: string = data.route;
         let params: string[] = data.params;
@@ -42,7 +48,7 @@ class Eechy {
       pParsed += `/:${param}`;
     });
 
-    this.app.get(`/${route}${pParsed}`, async (req, res) => {
+    this.app.get(`${route}${pParsed}`, async (req, res) => {
       let resx: object;
 
       let args: string[] = [];
