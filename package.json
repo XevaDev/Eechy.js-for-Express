@@ -1,6 +1,6 @@
 {
   "name": "express-eechy.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run all routes of your express api with just one function.",
   "main": "index.js",
   "scripts": {
@@ -34,5 +34,6 @@
   },
   "dependencies": {
     "express": "^4.18.1"
-  }
+  },
+  "types": "./index.d.ts"
 }
