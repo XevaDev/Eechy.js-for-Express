@@ -60,6 +60,7 @@ class Eechy {
                 pParsed += `/:${param}`;
             });
             this.app.get(`${route}${pParsed}`, (req, res) => __awaiter(this, void 0, void 0, function* () {
+                res.header("Access-Control-Allow-Origin", "*");
                 let resx;
                 let args = [];
                 params.forEach((param) => {

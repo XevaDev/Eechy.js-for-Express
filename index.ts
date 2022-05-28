@@ -61,6 +61,8 @@ class Eechy {
     });
 
     this.app.get(`${route}${pParsed}`, async (req, res) => {
+      res.header("Access-Control-Allow-Origin", "*");
+
       let resx: object;
 
       let args: string[] = [];
