@@ -1,0 +1,38 @@
+{
+  "name": "express-eechy.js",
+  "version": "1.0.0",
+  "description": "Run all routes of your express api with just one function.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XevaDev/Eechy.js-for-Express.git"
+  },
+  "keywords": [
+    "routes",
+    "libs",
+    "express",
+    "api",
+    "route",
+    "library",
+    "each",
+    "eechy",
+    "run-all-libs",
+    "one-setup"
+  ],
+  "author": "XevaDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XevaDev/Eechy.js-for-Express/issues"
+  },
+  "homepage": "https://github.com/XevaDev/Eechy.js-for-Express#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.35"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
