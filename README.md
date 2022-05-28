@@ -26,11 +26,13 @@ Here is an example of Eechy library:
 // All libraries needed here...
 
 module.exports.route = "/hello";
-module.exports.run = (name) => {
+module.exports.run = async (name) => {
   console.log(`Hello ${name}`);
 };
 module.exports.params = ["name"];
 ```
+
+**/!\ run() function is asynchrone because otherwise libraries that work asynchronously won't work**
 
 If you will go to "/hello/world" then the server will print "Hello world".
 

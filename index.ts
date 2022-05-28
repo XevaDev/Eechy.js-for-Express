@@ -1,5 +1,6 @@
 import type { Express } from "express";
 import { readdirSync } from "fs";
+import bodyParser from "body-parser";
 
 class Eechy {
   private app: Express;
@@ -7,23 +8,30 @@ class Eechy {
   private logs: boolean;
 
   constructor(app: Express, libsFolder?: string, logs?: boolean) {
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: false }));
+
     this.app = app;
     this.libsFolder = libsFolder;
     this.logs = logs || false;
   }
 
   runAllLibs() {
-    let parsePath: string | string[] = __dirname.split("/");
-    parsePath.pop();
-    parsePath.pop();
-    parsePath.push("libs");
-    parsePath = parsePath.join("/");
+    // Get the path of the libs folder in the workspace of the user.
+    if (this.libsFolder === undefined) {
+      this.libsFolder = process.cwd() + "/libs";
+    }
 
-    let files = readdirSync(this.libsFolder || parsePath, "utf-8");
+    let files = readdirSync(this.libsFolder, "utf-8");
     files.forEach((file) => {
       if (file.endsWith(".js")) {
-        let data = require(`${this.libsFolder || parsePath}/${file}`);
-        let run: (...args: any[]) => object = data.run;
+        let data = require(`${this.libsFolder}/${file}`);
+
+        if (!data.run) throw new Error(`${file} is not a valid lib.`);
+        if (!data.route) throw new Error(`${file} is not a valid lib.`);
+        if (!data.params) throw new Error(`${file} is not a valid lib.`);
+
+        let run: (...args: any[]) => Promise<object> = data.run;
         let route: string = data.route;
         let params: string[] = data.params;
 
@@ -42,7 +50,11 @@ class Eechy {
     });
   }
 
-  run(route: string, params: string[], run: (...args: any[]) => object) {
+  async run(
+    route: string,
+    params: string[],
+    run: (...args: any[]) => Promise<object>
+  ) {
     let pParsed: string = "";
     params.forEach((param) => {
       pParsed += `/:${param}`;
@@ -61,9 +73,9 @@ class Eechy {
 
       try {
         if (args.length > 0) {
-          resx = run(...args);
+          resx = await run(...args);
         } else {
-          resx = run();
+          resx = await run();
         }
 
         if (this.logs) {
