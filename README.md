@@ -62,9 +62,9 @@ myEechy.runAllLibs();
 
 <h4> Parameters: </h4>
 <ul>
-<li> [0] app: [Express](https://expressjs.com/fr/4x/api.html#express) </li>
-<li> [1] libsFolder?: [string](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String) (Default is ./libs) </li>
-<li> [2] logs?: [boolean](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Boolean) (Default is false) </li>
+<li> [0] app: <a href="https://expressjs.com/fr/4x/api.html#express">Express</a></li>
+<li> [1] libsFolder?: <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String"> string</a> (Default is ./libs) </li>
+<li> [2] logs?:  <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Boolean"> boolean </a> (Default is false) </li>
 </ul>
 
 <h4> Methods </h4>
@@ -77,15 +77,15 @@ myEechy.runAllLibs();
 
 <h6> Parameters: </h6>
 <ul>
-<li> [0] route: [string](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String) </li>
-<li> [1] params: [string[]](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String) </li>
-<li> [2] run: (...args) => [Promise](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise)[<object>](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object) </li>
+<li> [0] route: <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String"> string</a> </li>
+<li> [1] params:  <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String"> string[]</a></li>
+<li> [2] run: (...args) => <a hef="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise)">Promise<</a><a href="(https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object">object></a></li>
 </ul>
 
 <h5> .autorizeAccessControlAllowOrigin() </h5>
 
 <h6> Parameters: </h6>
 <ul>
-<li> [0] value [boolean](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Boolean) (Default is false) </li>
-<li> [1] autorizedServerPath: [string](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String) (Default is "./client") </li>
+<li> [0] value <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Boolean"> boolean </a> (Default is false) </li>
+<li> [1] autorizedClientPath: <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>(Default is "./client")</li>
 </ul>
