@@ -1,6 +1,6 @@
-# Eechy.js for Express
+<h1> Eechy.js for Express </h1>
 
-## What is Eechy.js?
+<h2> What is Eechy.js? </h2>
 
 Eechy.js is a little library that allow you to transform your local libraries into a express api.
 It will take your libraries in the chosen folder, will get all the informations and do some tweeks
@@ -8,7 +8,7 @@ to put on server route.
 
 If it isn't clear, next.
 
-## Import and How to use it.
+<h2> Import and How to use it. </h2>
 
 Install it: `npm i --save express-eechy.js`
 Import it in your code:
@@ -56,26 +56,36 @@ myEechy.runAllLibs();
 // ->  hello/world was called -> Hello world
 ```
 
-## Documenation
+<h2> Documenation </h2>
 
-### Export = Class Eechy
+<h3> Export = Class Eechy </h3>
 
-#### Parameters:
+<h4> Parameters: </h4>
+<ul>
+<li> [0] app: [Express](https://expressjs.com/fr/4x/api.html#express) </li>
+<li> [1] libsFolder?: [string](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String) (Default is ./libs) </li>
+<li> [2] logs?: [boolean](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Boolean) (Default is false) </li>
+</ul>
 
-- [0] app: Express
-- [1] libsFolder?: string (Default is ./libs)
-- [2] logs?: boolean (Default is false)
+<h4> Methods </h4>
 
-#### Methods
+<h5> .runAllLibs() </h5>
 
-##### .runAllLibs()
+<h6> Return: void </h6>
 
-###### Return: void
+<h5> .run() </h5>
 
-##### .run()
+<h6> Parameters: </h6>
+<ul>
+<li> [0] route: [string](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String) </li>
+<li> [1] params: [string[]](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String) </li>
+<li> [2] run: (...args) => [Promise](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise)[<object>](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object) </li>
+</ul>
 
-###### Parameters:
+<h5> .autorizeAccessControlAllowOrigin() </h5>
 
-- [0] route: string
-- [1] params: string[]
-- [2] run: (...args) => object
+<h6> Parameters: </h6>
+<ul>
+<li> [0] value [boolean](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Boolean) (Default is false) </li>
+<li> [1] autorizedServerPath: [string](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String) (Default is "./client") </li>
+</ul>

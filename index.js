@@ -15,11 +15,19 @@ const fs_1 = require("fs");
 const body_parser_1 = __importDefault(require("body-parser"));
 class Eechy {
     constructor(app, libsFolder, logs) {
+        this.accessControlAllowOrigin = false;
         app.use(body_parser_1.default.json());
         app.use(body_parser_1.default.urlencoded({ extended: false }));
         this.app = app;
         this.libsFolder = libsFolder;
         this.logs = logs || false;
+        if (this.accessControlAllowOrigin) {
+            this.app.use((req, res, next) => {
+                res.header("Access-Control-Allow-Origin", this.autorizedClientPath);
+                res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                next();
+            });
+        }
     }
     runAllLibs() {
         // Get the path of the libs folder in the workspace of the user.
@@ -60,7 +68,6 @@ class Eechy {
                 pParsed += `/:${param}`;
             });
             this.app.get(`${route}${pParsed}`, (req, res) => __awaiter(this, void 0, void 0, function* () {
-                res.header("Access-Control-Allow-Origin", "*");
                 let resx;
                 let args = [];
                 params.forEach((param) => {
@@ -96,6 +103,15 @@ class Eechy {
                 console.log(`${route}${pParsed} was added.`);
             }
         });
+    }
+    autorizeAccessControlAllowOrigin(value, autorizedClientPath) {
+        this.accessControlAllowOrigin = value;
+        if (this.accessControlAllowOrigin) {
+            if (autorizedClientPath === undefined) {
+                autorizedClientPath = process.cwd() + "/client";
+                this.autorizedClientPath = autorizedClientPath;
+            }
+        }
     }
 }
 module.exports = Eechy;

@@ -6,6 +6,8 @@ class Eechy {
   private app: Express;
   private libsFolder?: string;
   private logs: boolean;
+  private accessControlAllowOrigin: boolean = false;
+  private autorizedClientPath?: string;
 
   constructor(app: Express, libsFolder?: string, logs?: boolean) {
     app.use(bodyParser.json());
@@ -14,6 +16,17 @@ class Eechy {
     this.app = app;
     this.libsFolder = libsFolder;
     this.logs = logs || false;
+
+    if (this.accessControlAllowOrigin) {
+      this.app.use((req, res, next) => {
+        res.header("Access-Control-Allow-Origin", this.autorizedClientPath);
+        res.header(
+          "Access-Control-Allow-Headers",
+          "Origin, X-Requested-With, Content-Type, Accept"
+        );
+        next();
+      });
+    }
   }
 
   runAllLibs() {
@@ -61,8 +74,6 @@ class Eechy {
     });
 
     this.app.get(`${route}${pParsed}`, async (req, res) => {
-      res.header("Access-Control-Allow-Origin", "*");
-
       let resx: object;
 
       let args: string[] = [];
@@ -99,6 +110,20 @@ class Eechy {
 
     if (this.logs) {
       console.log(`${route}${pParsed} was added.`);
+    }
+  }
+
+  autorizeAccessControlAllowOrigin(
+    value: boolean,
+    autorizedClientPath?: string
+  ) {
+    this.accessControlAllowOrigin = value;
+
+    if (this.accessControlAllowOrigin) {
+      if (autorizedClientPath === undefined) {
+        autorizedClientPath = process.cwd() + "/client";
+        this.autorizedClientPath = autorizedClientPath;
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "express-eechy.js",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Run all routes of your express api with just one function.",
   "main": "index.js",
   "scripts": {
