@@ -79,7 +79,7 @@ myEechy.runAllLibs();
 <ul>
 <li> [0] route: <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String"> string</a> </li>
 <li> [1] params:  <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String"> string[]</a></li>
-<li> [2] run: (...args) => <a hef="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise)">Promise<</a><a href="(https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object">object></a></li>
+<li> [2] run: (...args) => <a hef="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise<</a><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object">object></a></li>
 </ul>
 
 <h5> .autorizeAccessControlAllowOrigin() </h5>
